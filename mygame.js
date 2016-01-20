@@ -1,6 +1,5 @@
 var diffLevel_global;
 $(document).ready(function() {
-	
 	$('#playBtn').click(function(event) {
 		var diffLevel = $('#diffSelector').val();
 		var moves = $('#movesSelector').val();
@@ -8,13 +7,12 @@ $(document).ready(function() {
 		diffLevel_global = diffLevel;
 		buildPuzzleArea(diffLevel);
 		
-		$(this).prop({			//this stands for playBtn
+		$(this).prop({			//this = playBtn
 			disabled: 'true'
 		});
 
 		$('#diffSelector').prop('disabled', 'true');
 		$('#movesSelector').prop('disabled', 'true');
-
 		$('#checkIfYouWon').removeAttr('disabled');
 
 		addRandomValues(diffLevel);
@@ -23,7 +21,6 @@ $(document).ready(function() {
 	});
 
 	function buildPuzzleArea (diffLevel) {
-
 		for (var i = 1; i <= diffLevel; i++) {
 			var row = '<tr id = "row' + i + '"></tr>';
 			$('#puzzle').append(row);
@@ -31,12 +28,10 @@ $(document).ready(function() {
 		
 		var helptip = "<h5>Refresh the page to start the game again</h5>";
 		$(helptip).insertAfter('#chooseDifficulty');
-		
 		addCells(diffLevel);
 	}
 
 	function addCells(diffLevel){
-
 		for (var i = 1; i <= diffLevel; i++) {
 			for (var j = 1; j <= diffLevel; j++) {
 				var cell = '<td id= "cell_' + i + "_" + j + '"></td>';
@@ -46,7 +41,6 @@ $(document).ready(function() {
 	}
 
 	function addRandomValues(diffLevel){
-
 		var addNumbersArray = new Array();
 		for (var i = 0; i < diffLevel*diffLevel; i++) {
 			addNumbersArray[i] = genRandomInt(99,1);
@@ -90,7 +84,6 @@ $(document).ready(function() {
 	}
 
 	function checkAdjBoxIfEmptyNswap(clicked_i,clicked_j,diffLevel,moves){
-
 		switch(moves)
 		{
 			case '1':
@@ -175,7 +168,6 @@ $(document).ready(function() {
 					emptycell_i = parseInt(clicked_i);
 					emptycell_j = parseInt(clicked_j);
 				}
-			
 			break;
 
 			case '2':
@@ -224,17 +216,13 @@ $(document).ready(function() {
 				}
 			
 			break;
-
 			default: break;
 		}
 	}
 
-	/*$('#checkIfYouWon').click(*/
 	function checkIfWon_func() {
-		/*alert("entring checkIfWon");*/
 		var valuesArray = new Array();
 		for (var i = 1; i <= diffLevel_global; i++) {
-			/*alert(diffLevel_global);*/
 			for (var j = 1; j <= diffLevel_global; j++)
 			{
 				if(!($('#cell_'+i+'_'+j).html() == '')){
@@ -247,24 +235,20 @@ $(document).ready(function() {
 				}
 			};
 		};
-		/*alert(valuesArray.toString());*/
 
 		var isWinner = false;
 		var i = 0;
 
-		/*alert(valuesArray.toString());*/
 		for (var i = 0; i < valuesArray.length; i++) {
 			if(i == valuesArray.length-1)
 				break;	//next value i.e valuesArray[i+1] will be undefined
 			if(parseInt(valuesArray[i]) <= parseInt(valuesArray[i+1]))
 			{
 				isWinner = true;
-				/*alert(valuesArray[i]+","+valuesArray[i+1]+","+isWinner);*/
 			}
 			else
 			{
 				isWinner = false;
-				/*alert(valuesArray[i]+","+valuesArray[i+1]+","+isWinner);*/
 				break;
 			}
 		};
@@ -272,20 +256,12 @@ $(document).ready(function() {
 		if(isWinner == true)
 		{
 			$('.keepTryingMsg').remove();
-			var gameStatus = '<h2 id="congoMsg">CONGRATULATIONS!! You win!</h2>';
+			var gameStatus = '<h2 id="congoMsg">CONGRATULATIONS!! You won!</h2>';
 			$(gameStatus).insertAfter('#puzzle');
 			blinkEffect('#congoMsg');
 			$('#howToPlay').delay(1000).fadeOut('slow');
-
 		}
-		/*else if(isWinner == false)
-		{
-			var gameStatus = '<h3 id="keepTrying" class="keepTryingMsg">Not there yet. Keep trying..</h3>';
-			$(gameStatus).insertAfter('#puzzle');
-			$('#keepTrying').fadeIn(3000).delay(1000).fadeOut("slow");
-		}*/
 	}
-	/*);*/
 	
 	function blinkEffect(selector){
 		$(selector).fadeOut('slow', function() {
@@ -294,5 +270,4 @@ $(document).ready(function() {
 			});
 		});
 	}
-
 });

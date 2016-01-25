@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 		addRandomValues(diffLevel);
 		findInitialEmptyCell(diffLevel);
-		clickBoxAction(diffLevel,moves);
+		clickBoxAction(diffLevel, moves);
 	});
 
 	function buildPuzzleArea (diffLevel) {

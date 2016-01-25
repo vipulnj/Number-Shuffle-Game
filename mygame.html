@@ -1,35 +1,52 @@
 <html>
 <head>
-	<title>Number shuffle game</title>
-	<link rel="stylesheet" type="text/css" href="mygame.css">	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="mygame.js"></script>
+	<title>Number Reaarrange game</title>
+	<link rel="stylesheet" type="text/css" href="mygame.css">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 </head>
 <body>
-	<div id="chooseDifficulty">
-		Choose grid size:&nbsp;
-		<select id="diffSelector">
-			<option value="3">3 x 3</option>
-			<option value="4">4 x 4</option>
-			<option value="5">5 x 5</option>
-		</select>&nbsp;&nbsp;
-		
-		Choose type of moves:&nbsp;
-		<select id="movesSelector">
-			<option value="1">Horizontal, Vertical and Diagonal</option>
-			<option value="2">Horizontal and Vertical</option>
-		</select>&nbsp;&nbsp;
-		<button id="playBtn">Play</button>&nbsp;
+	<div class="container">
+		<div class="row">
+			<h1 id="heading">Number Rearrange Game</h1>
+		</div>
+		<div class="row">
+			<div id="chooseDifficulty">
+				Choose grid size:&nbsp;
+				<select id="diffSelector">
+					<option value="3">3 x 3</option>
+					<option value="4">4 x 4</option>
+					<option value="5">5 x 5</option>
+				</select>&nbsp;&nbsp;
+				Choose type of moves:&nbsp;
+				<select id="movesSelector">
+					<option value="1">Horizontal, Vertical and Diagonal</option>
+					<option value="2">Horizontal and Vertical</option>
+				</select>&nbsp;&nbsp;
+				<button id="playBtn" type="button" class="btn btn-default">Play</button>&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<table id="puzzle"></table>	
+		</div>
+		<div class="row">
+			<div id="howToPlay">
+				<h3>How to play?</h3>
+				<ul>
+					<li>Arrange the numbers in ascending order by clicking the boxes adjacent to the empty one. The numbers will move as chosen.</li>
+					<li>Repeated number can be placed after the same number.</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<br>
-	<table id="puzzle"></table>
-
-	<div id="howToPlay">
-		<h3>How to play?</h3>
-		<ul>
-			<li>Arrange the numbers in ascending order by clicking the boxes adjacent to the empty one. The numbers will move as chosen.</li>
-			<li>Repeated number can be placed after the same number.</li>
-		</ul>
-	</div>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="mygame.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>
